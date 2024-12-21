@@ -13,6 +13,9 @@ def set_test_environment():
     os.environ["SERVER_BASE_URL"] = "http://testserver"
     os.environ["SERVER_DOWNLOAD_FOLDER"] = "test_downloads"
     yield
+
+    from app import config  
+    
     try:
         import shutil
         shutil.rmtree("./test_qr_codes")
