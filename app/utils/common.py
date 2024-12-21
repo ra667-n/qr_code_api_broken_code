@@ -41,6 +41,8 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -
 def validate_and_sanitize_url(url_str: str) -> Optional[str]: # Type hint return value
     """Validates and sanitizes a URL."""
     logging.info(f"Validating URL: {url_str}")
+    if not isinstance(url_str, str):
+        url_str = str(url_str)
     logging.info(f"Validating URL: {validators.url(url_str)}")
     if validators.url(url_str):
         parsed_url = urlparse(url_str)
