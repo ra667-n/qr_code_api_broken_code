@@ -22,6 +22,11 @@ def set_test_environment():
     except FileNotFoundError:
         pass
 
+os.environ["SECRET_KEY"] = "test_secret_key"
+os.environ["QR_CODE_DIR"] = "./test_qr_codes"
+os.environ["SERVER_BASE_URL"] = "http://testserver"
+os.environ["SERVER_DOWNLOAD_FOLDER"] = "test_downloads"
+
 # Configuration settings
 QR_DIRECTORY = Path(os.getenv('QR_CODE_DIR', './qr_codes'))
 QR_DIRECTORY.mkdir(parents=True, exist_ok=True)
