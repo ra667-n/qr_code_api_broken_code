@@ -9,8 +9,6 @@ from app.config import ADMIN_PASSWORD, ADMIN_USER, ALGORITHM, SECRET_KEY
 import validators  # Make sure to install this package
 from urllib.parse import urlparse, urlunparse
 
-print(validators.url("https://example.com/"))  # Should return True
-
 load_dotenv()
 
 def setup_logging():
@@ -42,6 +40,8 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -
 
 def validate_and_sanitize_url(url_str: str) -> Optional[str]: # Type hint return value
     """Validates and sanitizes a URL."""
+    logging.info(f"Validating URL: {url_str}")
+    logging.info(f"Validating URL: {validators.url(url_str)}")
     if validators.url(url_str):
         parsed_url = urlparse(url_str)
         sanitized_url = urlunparse(parsed_url)
