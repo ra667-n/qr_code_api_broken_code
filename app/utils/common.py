@@ -22,14 +22,14 @@ def setup_logging():
         logging.warning(f"Logging config file not found at {normalized_path}. Using basic configuration.")
 
 
-def authenticate_user(username: str, password: str) -> Optional[dict]: # Type hint return value
+def authenticate_user(username: str, password: str) -> Optional[Dict[str, str]]: # Type hint return value
     """Authenticates a user."""
     if username == ADMIN_USER and password == ADMIN_PASSWORD:
         return {"username": username}
     logging.warning(f"Authentication failed for user: {username}")
     return None
 
-def create_access_token(data: dict, expires_delta: Optional[timedelta] = None): # Type hint and default None
+def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str: # Type hint and default None
     """Generates a JWT access token."""
     to_encode = data.copy()
     expire = datetime.utcnow() + (expires_delta if expires_delta is not None else timedelta(minutes=15)) # Corrected logic
@@ -64,7 +64,7 @@ def decode_filename_to_url(encoded_str: str) -> str:
     decoded_bytes = base64.urlsafe_b64decode(encoded_str)
     return decoded_bytes.decode('utf-8')
 
-def generate_links(action: str, qr_filename: str, base_api_url: str, download_url: str) -> List[dict]:
+def generate_links(action: str, qr_filename: str, base_api_url: str, download_url: str) -> List[Dict[str, str]]:
     """Generates HATEOAS links."""
     links = []
     original_url = decode_filename_to_url(qr_filename[:-4]) # Decode here
