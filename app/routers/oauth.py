@@ -21,6 +21,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 
     # If authentication fails, raise an HTTPException with status 401 Unauthorized
     if not user:
+        logging.error(f"Authentication failed for user: {form_data.username}")
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Incorrect username or password",
