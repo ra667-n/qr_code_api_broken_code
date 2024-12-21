@@ -1,7 +1,7 @@
 import logging.config
 import os
 import base64
-from typing import List
+from typing import List, Optional, Dict
 from dotenv import load_dotenv
 from jose import jwt
 from datetime import datetime, timedelta
