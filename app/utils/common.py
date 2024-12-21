@@ -26,6 +26,7 @@ def authenticate_user(username: str, password: str) -> Optional[Dict[str, str]]:
     """Authenticates a user."""
     if username == ADMIN_USER and password == ADMIN_PASSWORD:
         return {"username": username}
+    logging.warning(f"Admin: {ADMIN_USER}, Pass: {ADMIN_PASSWORD}")
     logging.warning(f"Authentication failed for user: {username}")
     return None
 
