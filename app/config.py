@@ -12,6 +12,8 @@ def set_test_environment():
     os.environ["QR_CODE_DIR"] = "./test_qr_codes"
     os.environ["SERVER_BASE_URL"] = "http://testserver"
     os.environ["SERVER_DOWNLOAD_FOLDER"] = "test_downloads"
+    os.environ["ADMIN_USER"] = "test_admin_user"
+    os.environ["ADMIN_PASSWORD"] = "test_admin_password"
     yield
 
     from app import config  
@@ -26,6 +28,8 @@ os.environ["SECRET_KEY"] = "test_secret_key"
 os.environ["QR_CODE_DIR"] = "./test_qr_codes"
 os.environ["SERVER_BASE_URL"] = "http://testserver"
 os.environ["SERVER_DOWNLOAD_FOLDER"] = "test_downloads"
+os.environ["ADMIN_USER"] = "test_admin_user"
+os.environ["ADMIN_PASSWORD"] = "test_admin_password"
 
 # Configuration settings
 QR_DIRECTORY = Path(os.getenv('QR_CODE_DIR', './qr_codes'))
