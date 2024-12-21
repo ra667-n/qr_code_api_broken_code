@@ -58,9 +58,9 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: woffee/devops_demo:${{ github.sha }} # Change 'woffee' to your DockerHub username
+          tags: roheema/devops_demo:${{ github.sha }} # Change 'woffee' to your DockerHub username
           platforms: linux/amd64,linux/arm64 
-          cache-from: type=registry,ref=woffee/devops_demo:cache # Change 'woffee' to your DockerHub username
+          cache-from: type=registry,ref=roheema/devops_demo:cache # Change 'woffee' to your DockerHub username
           cache-to: type=inline,mode=max
           
       # - name: Scan the Docker image
