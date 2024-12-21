@@ -1,7 +1,7 @@
 # conftest.py
 import pytest
 from httpx import AsyncClient
-from app.main import app  # Adjust import path as necessary
+from app import main # Adjust import path as necessary
 
 @pytest.fixture
 async def client():
