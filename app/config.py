@@ -37,7 +37,6 @@ SERVER_DOWNLOAD_FOLDER = os.getenv('SERVER_DOWNLOAD_FOLDER', 'downloads')
 # Security Configuration
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-export SECRET_KEY="your_development_secret_key"  # Set the variable
 pytest  # Run your tests
 
 if not SECRET_KEY:
