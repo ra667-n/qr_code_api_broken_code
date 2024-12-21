@@ -9,6 +9,8 @@ from app.config import ADMIN_PASSWORD, ADMIN_USER, ALGORITHM, SECRET_KEY
 import validators  # Make sure to install this package
 from urllib.parse import urlparse, urlunparse
 
+print(validators.url("https://example.com/"))  # Should return True
+
 load_dotenv()
 
 def setup_logging():
