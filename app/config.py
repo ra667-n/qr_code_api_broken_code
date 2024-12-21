@@ -12,8 +12,6 @@ def set_test_environment():
     os.environ["QR_CODE_DIR"] = "./test_qr_codes"
     os.environ["SERVER_BASE_URL"] = "http://testserver"
     os.environ["SERVER_DOWNLOAD_FOLDER"] = "test_downloads"
-    os.environ["ADMIN_USER"] = "test_admin_user"
-    os.environ["ADMIN_PASSWORD"] = "test_admin_password"
     yield
 
     from app import config  
@@ -28,8 +26,6 @@ os.environ["SECRET_KEY"] = "test_secret_key"
 os.environ["QR_CODE_DIR"] = "./test_qr_codes"
 os.environ["SERVER_BASE_URL"] = "http://testserver"
 os.environ["SERVER_DOWNLOAD_FOLDER"] = "test_downloads"
-os.environ["ADMIN_USER"] = "test_admin_user"
-os.environ["ADMIN_PASSWORD"] = "test_admin_password"
 
 # Configuration settings
 QR_DIRECTORY = Path(os.getenv('QR_CODE_DIR', './qr_codes'))
@@ -52,8 +48,8 @@ try:
 except ValueError:
     raise ValueError("ACCESS_TOKEN_EXPIRE_MINUTES must be an integer.")
 
-ADMIN_USER = os.getenv('ADMIN_USER')
-ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
+ADMIN_USER = os.getenv('ADMIN_USER', 'admin')
+ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD', 'secret')
 
 if not ADMIN_USER or not ADMIN_PASSWORD:
     print("WARNING: ADMIN_USER and ADMIN_PASSWORD environment variables are not set. Basic authentication will not function. This is highly discouraged in production.")
