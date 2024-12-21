@@ -81,4 +81,4 @@ def create_directory(directory_path: Path):
     try:
         directory_path.mkdir(parents=True, exist_ok=True)  # Create the directory and any parent directories
     except FileExistsError:
-        logging.info(f"Directory already exists
+        logging.info(f"Directory already exists")
