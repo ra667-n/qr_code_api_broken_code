@@ -6,7 +6,7 @@ from pathlib import Path
 from app.config import SERVER_BASE_URL, SERVER_DOWNLOAD_FOLDER
 
 
-def list_qr_codes(directory_path: Path) -> List[str]:
+def list_qr_code(directory_path: Path) -> List[str]:
     """
     Lists all QR code images in the specified directory by returning their filenames.
 
